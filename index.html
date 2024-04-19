@@ -189,7 +189,7 @@
         const bridge = vkBridge.default;
         bridge.send("VKWebAppShowNativeAds", {ad_format:"reward", use_waterfall:true})
         .then(data => {
-          myGameInstance.SendMessage('VkBridge', 'ShowRewardedResult', JSON.stringify(data));
+          myGameInstance.SendMessage('VkBridge', 'ShowRewardedResult', 'result');
         })  
         .catch(error => {
             //myGameInstance.SendMessage('VkBridge', 'ShowRewardedError', 'error');
