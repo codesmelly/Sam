@@ -180,7 +180,7 @@
           myGameInstance.SendMessage('VkBridge', 'ShowInterstitialResult', JSON.stringify(data));
         })  
         .catch(error => {
-            myGameInstance.SendMessage('VkBridge', 'ShowRewardedError', JSON.stringify(error));
+            myGameInstance.SendMessage('VkBridge', 'ShowInterstitialError', 'error');
             console.log(error);            
         });
     }
@@ -189,12 +189,11 @@
         const bridge = vkBridge.default;
         bridge.send("VKWebAppShowNativeAds", {ad_format:"reward", use_waterfall:true})
         .then(data => {
-          myGameInstance.SendMessage('VkBridge', 'ShowRewardedResult', 'result');
+          myGameInstance.SendMessage('VkBridge', 'ShowRewardedResult', JSON.stringify(data));
         })  
         .catch(error => {
-            console.log(myGameInstance);
-            myGameInstance.SendMessage('VkBridge', 'ShowRewardedError', 'error');
-            console.log(error);            
+            console.log(error);
+            myGameInstance.SendMessage('VkBridge', 'ShowRewardedError', JSON.stringify(error));
         });
     }      
 
