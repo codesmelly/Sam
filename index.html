@@ -192,6 +192,7 @@
           myGameInstance.SendMessage('VkBridge', 'ShowRewardedResult', JSON.stringify(data));
         })  
         .catch(error => {
+            console.log('error');
             myGameInstance.SendMessage('VkBridge', 'ShowRewardedError', JSON.stringify(error));
             console.log(error);            
         });
